@@ -28,7 +28,7 @@ def extract_digit_blocks(drawing):
     digit_blocks = []
 
     for i in range(num_digits):
-        block = [line[i*4:i*4+3] for line in lines if line.strip()]
+        block = [line[i*4:i*4+3] for line in lines if line.strip()]  # slices each line to get the 3 characters representing the digit block.
         digit_blocks.append(block)
 
     return digit_blocks
@@ -62,7 +62,7 @@ def validate_checksum(number):
     
     total = 0
     for i, digit in enumerate(number):
-        weight = 9 - i  # d9 is first, d1 is last
+        weight = i + 1  # d1 has weight 1, d2 has weight 2, ..., d9 has weight 9
         total += weight * int(digit)
     
     return (total % 11) == 0

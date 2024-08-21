@@ -61,7 +61,7 @@ def test_extract_numbers_from_drawings():
     assert numbers_list[0] == '?'
 
 def test_validate_checksum():
-    valid_number = '457508000'
+    valid_number = '831488126'
     invalid_number = '1234567?9'
     
     assert validate_checksum(valid_number) == True
