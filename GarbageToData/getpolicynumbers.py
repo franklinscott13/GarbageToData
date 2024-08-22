@@ -15,15 +15,18 @@ DIGIT_PATTERNS = {
     '9': np.array([' _ ', '|_|', ' _|'])
 }
 
-def read_file_to_drawings(filename):
+def read_test_files(filename):
     with open(filename, 'r') as file:
-        content = file.read().strip()
+        content = file.read()
     # Split by double newlines to separate drawings
     drawings = content.split('\n\n')
+    
     return drawings
 
 def extract_digit_blocks(drawing):
     lines = drawing.split('\n')
+    for line in lines:
+            print(line)
     num_digits = len(lines[0]) // 4  # Each digit block is 3 characters wide + 1 space
     digit_blocks = []
 
@@ -39,7 +42,7 @@ def match_digit_pattern(array_2d):
             return digit
     return '?'  # Return '?' if no match is found
 
-def extract_numbers_from_drawings(drawings):
+def extract_numbers_from_files(drawings):
     all_numbers = []
     
     for drawing in drawings:
@@ -73,19 +76,13 @@ def process_files_in_directory(directory):
             if filename.endswith('.txt'):  # Process only .txt files
                 file_path = os.path.join(directory, filename)
                 try:
-                    drawings = read_file_to_drawings(file_path)
-                    numbers_list = extract_numbers_from_drawings(drawings)
+                    drawings = read_test_files(file_path)
+                    numbers_list = extract_numbers_from_files(drawings)
                     for idx, numbers in enumerate(numbers_list, start=1):
                         print(f'PossibleNumbers: {numbers}')
-                        if validate_checksum(numbers):
-                            print(f'Checksum valid for: {numbers}')
-                            file.write(str(numbers))
-                        else:
-                            print(f'Checksum invalid for: {numbers}')
-                            if '?' in str(numbers):
-                                file.write(str(numbers) + ' ILL' + '\n')
-                            else:
-                                file.write(str(numbers) + ' ERR'+ '\n')
+                        status = "Valid" if validate_checksum(numbers) else ("ILL" if '?' in numbers else "ERR") # if a valid number and not checksum ERR Else ILL or its valid
+                        print(f'Checksum {status} for: {numbers}') 
+                        file.write(f'{numbers}{" " + status if status != "Valid" else ""}\n') # write to file if not valid add the suffix
                 except ValueError as e:
                     print(f'Error processing file {filename}: {e}')
 

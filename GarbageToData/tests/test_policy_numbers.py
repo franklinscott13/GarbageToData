@@ -1,8 +1,9 @@
 import numpy as np
 import pytest
+import os
 
 # Assuming the code you provided is in a module named `module`
-from KinCodeTest.getpolicynumbers import read_file_to_drawings, extract_digit_blocks, match_digit_pattern, extract_numbers_from_drawings, validate_checksum, process_files_in_directory
+from GarbageToData.getpolicynumbers import read_test_files, extract_digit_blocks, match_digit_pattern, extract_numbers_from_files, validate_checksum, process_files_in_directory
 
 # Sample data for testing
 SAMPLE_DRAWING_1 = """\
@@ -35,14 +36,15 @@ SAMPLE_PATTERNS = {
     '9': np.array([' _ ', '|_|', ' _|'])
 }
 
-def test_read_file_to_drawings():
+def test_read_test_files():
     with open('test_file.txt', 'w') as f:
         f.write(SAMPLE_DRAWING_1 + '\n\n' + SAMPLE_DRAWING_2)
     
-    drawings = read_file_to_drawings('test_file.txt')
+    drawings = read_test_files('test_file.txt')
     assert len(drawings) == 2
     assert drawings[0].strip() == SAMPLE_DRAWING_1.strip()
     assert drawings[1].strip() == SAMPLE_DRAWING_2.strip()
+    os.remove('test_file.txt')
 
 def test_extract_digit_blocks():
     digit_blocks = extract_digit_blocks(SAMPLE_DRAWING_1)
@@ -55,9 +57,9 @@ def test_match_digit_pattern():
     for digit, pattern in SAMPLE_PATTERNS.items():
         assert match_digit_pattern(pattern) == digit
 
-def test_extract_numbers_from_drawings():
+def test_extract_numbers_from_files():
     drawings = [SAMPLE_DRAWING_1, SAMPLE_DRAWING_2]
-    numbers_list = extract_numbers_from_drawings(drawings)
+    numbers_list = extract_numbers_from_files(drawings)
     assert numbers_list[0] == '?'
 
 def test_validate_checksum():

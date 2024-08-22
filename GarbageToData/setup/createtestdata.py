@@ -1,3 +1,6 @@
+#####################################################################################
+# This is to generate test data it is not perfect but it hellped build something
+#####################################################################################
 import numpy as np
 
 # Define constants for digit patterns
