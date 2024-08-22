@@ -1,6 +1,13 @@
 # KinCodeTest
 This is process will take a visual representation of numbers using pipes '|' and underscores '_' using three lines of a file, and try to conver them into real numbers. 
-As well as try to check some the value to see the formula mod 11 == 0 and then write to a file detrmining if the value is good or not. 
+As well as try to checksum the value to see the formula mod 11 == 0  uing this formula:
+policy number: 3 4 5 8 8 2 8 6 5
+position names: d9 d8 d7 d6 d5 d4 d3 d2 d1
+checksum calculation:
+(d1+(2*d2)+(3*d3)+...+(9*d9)) mod 11 = 0
+Then write to a file detrmining if the value is good or not. 
+
+
 Resulting with the out put of:
  _       _   _   _   _   _   _       
 |_  |_| |_  | | |_  | | |_| |_   |_| 
