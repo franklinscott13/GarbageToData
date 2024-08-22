@@ -8,10 +8,11 @@ checksum calculation:
 Then write to a file detrmining if the value is good or not. 
 
 
-Resulting with the out put of:
+Resulting with the out put of: Git hub formats these weird. Looks better after download
  _       _   _   _   _   _   _       
 |_  |_| |_  | | |_  | | |_| |_   |_| 
  _|   | |_| |_|  _| |_| |_| |_|    | 
+ 
 PossibleNumbers: 54605086?
 Checksum ILL for: 54605086?
  _   _           _   _       _   _  
