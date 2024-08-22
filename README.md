@@ -8,7 +8,7 @@ checksum calculation:
 Then write to a file detrmining if the value is good or not. 
 
 
-Resulting with the out put of(Should look better reading it locally):
+Resulting with the output of(Should look better reading it locally):
 
  _       _   _   _   _   _   _       
 |_  |_| |_  | | |_  | | |_| |_   |_| 
