@@ -7,6 +7,7 @@ checksum calculation:
 (d1+(2*d2)+(3*d3)+...+(9*d9)) mod 11 = 0
 Then write to a file detrmining if the value is good or not. 
 
+
 Resulting with the out put of:
  _       _   _   _   _   _   _       
 |_  |_| |_  | | |_  | | |_| |_   |_| 
