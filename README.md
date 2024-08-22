@@ -1,4 +1,4 @@
-# KinCodeTest
+# Garbage To Data
 This is process will take a visual representation of numbers using pipes '|' and underscores '_' using three lines of a file, and try to conver them into real numbers. 
 As well as try to checksum the value to see the formula mod 11 == 0  uing this formula:
 policy number: 3 4 5 8 8 2 8 6 5
