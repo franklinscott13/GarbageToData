@@ -87,5 +87,5 @@ def process_files_in_directory(directory):
                     print(f'Error processing file {filename}: {e}')
 
 # Example usage
-directory = 'TestFiles'  # Replace with your directory path
+directory = 'TestFiles'
 process_files_in_directory(directory)
