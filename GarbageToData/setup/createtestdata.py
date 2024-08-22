@@ -49,7 +49,7 @@ def extract_numbers_from_lines(lines):
     return ''.join(numbers)
 
 # Example usage
-filename = 'KinCodeTestData.txt'
+filename = 'GarbageToData.txt'
 try:
     lines = read_file_to_lines(filename)
     numbers = extract_numbers_from_lines(lines)
